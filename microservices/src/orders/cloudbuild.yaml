@@ -5,7 +5,7 @@ steps:
   name: node
   entrypoint: npm
   args: ['install']
-  dir:'orders'
+  dir: 'orders'
 
 # Build the container image
 - name: 'gcr.io/cloud-builders/docker'
