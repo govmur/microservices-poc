@@ -1,11 +1,11 @@
 steps:
-- name: 'asia-south1-docker.pkg.dev/cloud-builders/git'
+- name: 'gcr.io/cloud-builders/git'
   args: ['clone','https://github.com/govmur/microservices-poc']
 # Build the container image
-- name: 'asia-south1-docker.pkg.dev/cloud-builders/docker'
+- name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'asia-south1-docker.pkg.dev/bangalore-sandbox/orders/orders', '.']
 # Push the container image to Container Registry
-- name: 'asia-south1-docker.pkg.dev/cloud-builders/docker'
+- name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'asia-south1-docker.pkg.dev/bangalore-sandbox/orders/orders']
 ## Deploy container image to Cloud Run
 #- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
