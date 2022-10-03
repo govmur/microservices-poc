@@ -2,6 +2,10 @@ steps:
 - name: 'gcr.io/cloud-builders/git'
   args: ['clone','https://github.com/govmur/microservices-poc']
   
+  name: node
+  entrypoint: npm
+  args: ['install']
+
 # Build the container image
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'asia-south1-docker.pkg.dev/bangalore-sandbox/orders/orders:latest', '.']
