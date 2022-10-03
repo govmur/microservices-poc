@@ -1,13 +1,13 @@
 steps:
 # Build the container image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'asia-south1-docker.pkg.dev/bangalore-sandbox/orders', '.']
+  args: ['build', '-t', 'asia-south1-docker.pkg.dev/bangalore-sandbox/orders/orders', '.']
 # Push the container image to Container Registry
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'asia-south1-docker.pkg.dev/bangalore-sandbox/orders']
+  args: ['push', 'asia-south1-docker.pkg.dev/bangalore-sandbox/orders/orders']
 # Deploy container image to Cloud Run
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: gcloud
-  args: ['run', 'deploy', 'orders', '--image', 'gcr.io/bangalore-sandbox/orders', '--region', 'asia-south1']
+  args: ['run', 'deploy', 'orders', '--image', 'asia-south1-docker.pkg.dev/bangalore-sandbox/orders/orders', '--region', 'asia-south1']
 images:
-- asia-south1-docker.pkg.dev/bangalore-sandbox/orders
+- asia-south1-docker.pkg.dev/bangalore-sandbox/orders/orders
